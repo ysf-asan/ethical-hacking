@@ -25,7 +25,7 @@ def reset_operation(fooled_ip,getaway_ip):
     fooled_mac = get_mac_address(fooled_ip)
     getaway_mac = get_mac_address(getaway_ip)
 
-    arp_response = scapy.ARP(op=2,pdst=fooled_ip,hwdst=fooled_mac,psrc=getaway_ip)
+    arp_response = scapy.ARP(op=2,pdst=fooled_ip,hwdst=fooled_mac,psrc=getaway_ip,hwdst=getaway)
     scapy.send(arp_response,verbose=False,count=6)
 
 def get_user_input():
